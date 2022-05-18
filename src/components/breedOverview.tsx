@@ -1,7 +1,13 @@
+import { useNavigation } from '@react-navigation/core';
 import React, {useEffect, useState} from 'react';
-import {ActivityIndicator, Image, Text, View} from 'react-native';
+import {
+  ActivityIndicator,
+  Image,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {Cat} from '../interfaces/cats';
-import {LoadingScreen} from '../screens/LoadingScreen';
 import {styles} from '../theme/styles';
 import {FadeInImage} from './FadeInImage';
 
@@ -10,30 +16,27 @@ interface Props {
 }
 
 export const BreedOverview = ({breed}: Props) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const geturi = (): string => {
-    if (breed.image === undefined) {
-      return '../assets/notFound.jpeg';
-    } else {
-      if (!breed.image.url === undefined) {
-        console.log(breed.image!.url!);
-        return breed.image!.url!;
-      }
-      return '../assets/notFound.jpeg';
-    }
-  };
+  const navigation = useNavigation();
   return (
+    <TouchableOpacity
+    activeOpacity={0.8}
+    
+            onPress={
+              /**HERE**/
+/*TO SEND PARAMS WITH THE NAVIGATOR*/
+() => navigation.navigate({name:"BreedDetailsScreen",params:breed})}
+            >
+      <View style={styles.breedType}>
+        <View>
+          <Text style={styles.title}>{breed.name}</Text>
+        </View>
+        <FadeInImage uri={breed.image?.url!} style={styles.image} />
 
-    <View style={styles.breedType}>
-         <View>
-        <Text style={styles.title}>{breed.name}</Text>
+        <View>
+          <Text style={styles.description}>{breed.description}</Text>
+        </View>
       </View>
-       <FadeInImage uri={breed.image?.url!} style={styles.image} />
-     
-      <View>
-        <Text style={styles.description}>{breed.description}</Text>
-      </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

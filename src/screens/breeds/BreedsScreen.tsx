@@ -19,7 +19,6 @@ export const BreedsScreen = () => {
        data={breeds}
        ItemSeparatorComponent={ () => <ItemSeparator />}
        renderItem={({item}) => <BreedOverview breed={item}/>
-       
       }
       />
    </View>
