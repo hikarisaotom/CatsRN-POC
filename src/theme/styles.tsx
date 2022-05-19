@@ -46,6 +46,16 @@ export const styles = StyleSheet.create({
     paddingBottom:5,
     paddingTop:5,
   },
+  getRandomBtn: {
+   paddingTop:10,
+   paddingBottom:10,
+    width: '75%',
+    backgroundColor: 'rgba(192, 192, 192, 0.7)',
+    alignItems: 'center',
+    alignSelf:'center',
+    borderRadius:20
+  },
+
   description: {
     fontSize: 15,
     alignSelf: 'flex-start',
