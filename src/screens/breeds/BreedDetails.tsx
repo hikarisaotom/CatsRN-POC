@@ -2,12 +2,10 @@ import React from 'react';
 import {StackScreenProps} from '@react-navigation/stack';
 import {
   Dimensions,
-  Image,
   SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
-  TouchableOpacity,
   View,
 } from 'react-native';
 import {RootStackParams} from '../../navigators/BreedsStackNavigator';
@@ -23,7 +21,7 @@ interface Props extends StackScreenProps<RootStackParams, 'BreedDetails'> {}
 export const BreedDetails = ({route, navigation}: Props) => {
   const breed = route.params;
   return (
-    // <SafeAreaView >
+     <SafeAreaView >
       <ScrollView>
           <View style={styles.imageContainer}>
           <View style={styles.imageBorder}>
@@ -52,5 +50,6 @@ export const BreedDetails = ({route, navigation}: Props) => {
 
         <CloseBtn /> 
       </ScrollView>
+      </SafeAreaView>
     );
 };
