@@ -3,6 +3,7 @@ import {
   ActivityIndicator,
   Animated,
   ImageErrorEventData,
+  ImageSourcePropType,
   ImageStyle,
   NativeSyntheticEvent,
   StyleProp,
@@ -13,7 +14,7 @@ import {useAnimation} from '../hooks/useAnimation';
 interface Props {
   uri: string;
   style?: StyleProp<ImageStyle>;
-  localImg?: NodeRequire;
+  localImg?: NodeRequire|ImageSourcePropType;
 }
 
 export const FadeInImage = ({uri, style = {}, localImg = undefined}: Props) => {

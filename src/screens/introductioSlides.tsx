@@ -14,6 +14,7 @@ import {
 
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import {useAnimation} from '../hooks/useAnimation';
+import {FadeInImage} from '../components/FadeInImage';
 
 const {width: screenWidth} = Dimensions.get('window');
 
@@ -25,22 +26,22 @@ interface Slide {
 
 const items: Slide[] = [
   {
-    title: 'Titulo 1',
+    title: 'Hey!, Hello there!',
     desc:
-      'Ea et eu enim fugiat sunt reprehenderit sunt aute quis tempor ipsum cupidatat et.',
-    img: require('../assets/slide-1.png'),
+      'Welcome to the cats app, here you can find lots of information to lear more about your furry friend!, lets take and overview about what you can do here!',
+    img: require('../assets/slide-1.gif'),
   },
   {
-    title: 'Titulo 2',
+    title: 'Types of breed!',
     desc:
-      'Anim est quis elit proident magna quis cupidatat culpa labore Lorem ea. Exercitation mollit velit in aliquip tempor occaecat dolor minim amet dolor enim cillum excepteur. ',
-    img: require('../assets/slide-2.png'),
+      'Have you ever wonder about the type of breed of a cat? which are their characteristics and more? well, not anymore! you can find all the information related to cat breeds here!',
+    img: require('../assets/slide-2.gif'),
   },
   {
-    title: 'Titulo 3',
+    title: 'Have Fun!',
     desc:
-      'Ex amet duis amet nulla. Aliquip ea Lorem ea culpa consequat proident. Nulla tempor esse ad tempor sit amet Lorem. Velit ea labore aute pariatur commodo duis veniam enim.',
-    img: require('../assets/slide-3.png'),
+      'Besides of learning you can also have fun!, we all can agree that watching funny cat pictures is relaxing!, guess what? you can also do that in here!You can either see them divided by category or just have a random picture!.',
+    img: require('../assets/slide-3.gif'),
   },
 ];
 
@@ -61,12 +62,13 @@ export const SlidesScreen = ({navigation}: Props) => {
           justifyContent: 'center',
         }}
       >
-        <Image
-          source={item.img}
+        <FadeInImage
+          localImg={item.img}
+          uri=""
           style={{
             width: 350,
             height: 400,
-            resizeMode: 'center',
+            resizeMode: 'cover',
           }}
         />
 
@@ -135,32 +137,44 @@ export const SlidesScreen = ({navigation}: Props) => {
             opacity,
           }}
         >
-          <TouchableOpacity
-            style={{
-              flexDirection: 'row',
-              width: 140,
-              height: 50,
-              borderRadius: 10,
-              justifyContent: 'center',
-              alignItems: 'center',
-              backgroundColor:'#5856D6'
-            }}
-            activeOpacity={0.8}
-            onPress={() => {
-              if (isVisible.current) {
-                navigation.navigate('TabsNavigatorHomeScreen');
-              }
-            }}
-          >
-            <Text
+          {activeIndex >= 2 && (
+            <TouchableOpacity
               style={{
-                fontSize: 25,
-                color: 'white',
+                flexDirection: 'row',
+                // width: 140,
+                height: 50,
+                borderRadius: 10,
+                justifyContent: 'center',
+                alignItems: 'center',
+                backgroundColor: '#5856D6',
+              }}
+              activeOpacity={0.8}
+              onPress={() => {
+                if (isVisible.current) {
+                  navigation.navigate('TabsNavigatorHomeScreen');
+                }
               }}
             >
-              Entrar
-            </Text>
-          </TouchableOpacity>
+              
+              <FadeInImage
+                uri=""
+                style={{width: 150, height: 150, marginTop: -35,marginRight:-145,}
+              }
+                localImg={require('../assets/slide-4.gif')}
+              />
+              <Text
+                style={{
+                  marginRight:80,
+                  paddingLeft:10,
+                  fontSize: 25,
+                  color: 'white',
+                  alignSelf: 'center',
+                }}
+              >
+                Let's Go!
+              </Text>
+            </TouchableOpacity>
+          )}
         </Animated.View>
       </View>
     </SafeAreaView>
