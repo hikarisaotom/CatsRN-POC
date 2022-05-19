@@ -11,6 +11,7 @@ export const useBreeds = () => {
   }, []);
 
   const getCats = async () => {
+    setIsLoading(true)
     const cats = await catsApi.get<Cat[]>('/breeds');
     setBreeds(cats.data)
     setIsLoading(false)
@@ -18,5 +19,6 @@ export const useBreeds = () => {
   return {
     isLoading,
     breeds,
+    getCats
   };
 };

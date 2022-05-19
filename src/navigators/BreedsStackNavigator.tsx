@@ -17,10 +17,13 @@ export const BreedsStackNavigator = () => {
   return (
     <Stack.Navigator
     screenOptions={{
-      headerShown:false
+      headerShown: false,
+      cardStyle: {
+        backgroundColor: 'white'
+      }
   }}>
       <Stack.Screen name="BreedsScreen" component={BreedsScreen} />
-      <Stack.Screen name="BreedDetailsScreen" component={BreedDetails} />
+      <Stack.Screen name="BreedDetails" component={BreedDetails} />
     </Stack.Navigator>
   );
 };

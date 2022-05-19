@@ -7,21 +7,22 @@ import { ItemSeparator } from '../ItemSeparator';
 import { LoadingScreen } from '../LoadingScreen';
 
 export const BreedsScreen = () => {
-  const {isLoading, breeds} = useBreeds();
-  // const dimentions=useWindowDimensions();
+  const {isLoading, breeds,getCats} = useBreeds();
+  
   if (isLoading) return <LoadingScreen />;
 
 
   return (
     <SafeAreaView style={styles.globalContaier}>
-        <View >
        <FlatList
+         onRefresh={getCats}
+         refreshing={isLoading}
        data={breeds}
-       ItemSeparatorComponent={ () => <ItemSeparator />}
+      //  ItemSeparatorComponent={ () => <ItemSeparator />}
        renderItem={({item}) => <BreedOverview breed={item}/>
       }
       />
-   </View>
+ 
     </SafeAreaView>
  
   )

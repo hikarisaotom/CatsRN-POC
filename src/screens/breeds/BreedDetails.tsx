@@ -10,10 +10,10 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {Cat} from '../../interfaces/cats';
 import {RootStackParams} from '../../navigators/BreedsStackNavigator';
 import {FadeInImage} from '../../components/FadeInImage';
 import {styles} from '../../theme/styles';
+import { CloseBtn } from '../../components/CloseBtn';
 const screenHeight = Dimensions.get('screen').height;
 
 /**HERE**/
@@ -22,55 +22,36 @@ interface Props extends StackScreenProps<RootStackParams, 'BreedDetails'> {}
 
 export const BreedDetails = ({route, navigation}: Props) => {
   const breed = route.params;
-
-  //   return (
-  //     <SafeAreaView style={styles.globalContaier}>
-  //     <View>
-  //      <Text>
-  //        {breed.name}
-
-  //      </Text>
-  //     </View>
-  //     </SafeAreaView>
-  //   );
-  // };
-  console.log('cat');
-  console.log(breed.image?.url!);
-
   return (
     // <SafeAreaView >
       <ScrollView>
-        {/* <View style={styles.imageContainer}>
-        <View style={styles.imageBorder}>
-        <FadeInImage uri={breed.image?.url!}  style={{...styles.posterImage,height: screenHeight * 0.5}} />
-        </View>
-      </View> 
-      <FadeInImage uri={breed.image?.url!}  style={styles.posterImage}/>*/}
-        <View style={styles.imageContainer}>
+          <View style={styles.imageContainer}>
           <View style={styles.imageBorder}>
             <FadeInImage
               uri={breed.image?.url!}
-              style={{
+
+              style={/*{
                 ...styles.image,
                 height: screenHeight * 0.45,
                 alignSelf: 'center',
-              }}
+              }*/
+              {
+                width: '100%',
+                height: undefined,
+                aspectRatio: 1.2,
+                resizeMode:'cover'
+            }}
             />
           </View>
         </View>
 
         <View style={styles.marginContainer}>
-          <Text style={styles.subTitle}>{breed.name}</Text>
-          <Text style={styles.titleDetails}>{breed.alt_names}</Text>
+          <Text style={styles.titleDetails}>{breed.name}</Text>
+          <Text style={styles.subTitle}>{breed.alt_names}</Text>
         </View>
 
-        {/* {isLoading ? (
-      <ActivityIndicator size={35} color="grey" style={{marginTop: 20}} />
-    ) : (
-      <MovieDetails movieFull={movieFull!} cast={cast} />
-    )} */}
 
-        {/* Boton para cerrar */}
+        {/* Boton para cerrar
         <View style={styles.backButton}>
           <TouchableOpacity onPress={() => navigation.pop()}>
             <Text
@@ -83,8 +64,8 @@ export const BreedDetails = ({route, navigation}: Props) => {
               BACK{' '}
             </Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
+        <CloseBtn /> 
       </ScrollView>
-    // </SafeAreaView>
-  );
+    );
 };

@@ -1,10 +1,13 @@
 import React from 'react'
-import { View,Text } from 'react-native'
+import { View,Text, SafeAreaView } from 'react-native'
 
 export const ImagesScreen = () => {
   return (
-   <View>
+      <SafeAreaView>
+          <View>
        <Text>ImagesScreen</Text>
    </View>
+      </SafeAreaView>
+ 
   )
 }

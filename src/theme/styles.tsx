@@ -1,42 +1,62 @@
-import { StyleSheet } from "react-native";
+import {StyleSheet} from 'react-native';
 
-export const styles=StyleSheet.create({
-    globalContaier:{
-        flex:1,
-        backgroundColor:'white',
-        marginLeft:20,
-        marginRight:20
-    
+export const styles = StyleSheet.create({
+  globalContaier: {
+    flex: 1,
+    backgroundColor: 'white',
+    marginLeft: 10,
+    marginRight: 10,
+  },
+
+  breedType: {
+    marginBottom: 20,
+    backgroundColor: 'white',
+    borderRadius: 20,
+    flexDirection: 'column',
+    shadowColor: 'black',
+    shadowOffset: {
+      width: 0,
+      height: 5,
     },
+    shadowOpacity: 0.5,
+    shadowRadius: 4,
 
-    breedType:{
-        paddingTop:25,
-        backgroundColor:'white',
-        flexDirection:'column'
-    
-    }
-,image:{
-    // zIndex: 1,
-    width:'100%',
-    height:250,
-},
+    elevation: 9,
+    borderBottomEndRadius: 25,
+    borderBottomStartRadius: 25,
+  },
+  image: {
+    width: '100%',
+    //height:250,
 
-title:{
-    fontSize:20,
-    alignSelf:'center',
-    marginBottom:15
-},
-description:{
-    fontSize:15,
-    alignSelf:'flex-start',
-    marginTop:15
-},
-imageContainer: {
+    height: undefined,
+    aspectRatio: 1,
+    resizeMode: 'cover',
+    borderRadius: 20,
+  },
+
+  title: {
+    marginTop: -34.5,
+    fontSize: 60,
+    width: '75%',
+    backgroundColor: 'rgba(192, 192, 192, 0.7)',
+    paddingLeft: 15,
+    borderTopRightRadius:10,
+    borderBottomLeftRadius:20,
+    paddingBottom:5,
+    paddingTop:5,
+  },
+  description: {
+    fontSize: 15,
+    alignSelf: 'flex-start',
+    marginTop: 15,
+  },
+  imageContainer: {
     // zIndex: 1,
     // backgroundColor: 'red',
     // overflow: 'hidden',
     width: '100%',
-  //  height: screenHeight * 0.7,
+    //  height: screenHeight * 0.7,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -44,12 +64,12 @@ imageContainer: {
     },
     shadowOpacity: 0.24,
     shadowRadius: 7,
-  
+
     elevation: 9,
     borderBottomEndRadius: 25,
     borderBottomStartRadius: 25,
   },
-  
+
   imageBorder: {
     // zIndex: 1,
 
@@ -63,7 +83,7 @@ imageContainer: {
 
     flex: 1,
   },
-  
+
   marginContainer: {
     // zIndex: 1,
 
@@ -85,8 +105,4 @@ imageContainer: {
     top: 60,
     righ: 5,
   },
-  
-
 });
-
-
