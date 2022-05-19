@@ -46,15 +46,17 @@ export const styles = StyleSheet.create({
     paddingBottom:5,
     paddingTop:5,
   },
-  getRandomBtn: {
-   paddingTop:10,
-   paddingBottom:10,
-    width: '75%',
-    backgroundColor: 'rgba(192, 192, 192, 0.7)',
-    alignItems: 'center',
-    alignSelf:'center',
-    borderRadius:20
-  },
+  // getRandomBtn: {
+  //  paddingTop:10,
+  //  paddingBottom:10,
+  //   width: '90%',
+  //   backgroundColor: 'rgba(192, 192, 192, 0.7)',
+  //   alignItems: 'center',
+  //  // alignSelf:'center',
+  //   borderRadius:20,
+  //   position: 'absolute'
+
+  // },
 
   description: {
     fontSize: 15,
@@ -112,7 +114,11 @@ export const styles = StyleSheet.create({
     position: 'absolute',
     zIndex: 999,
     elevation: 9,
-    top: 60,
+    top: 20,
     righ: 5,
+    paddingTop:10,
+   paddingBottom:10,
+    backgroundColor: 'rgba(192, 192, 192, 0.7)',
+    alignItems: 'center',
   },
 });

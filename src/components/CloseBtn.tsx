@@ -14,7 +14,6 @@ export const CloseBtn = () => {
          <Text
            style={{
              ...styles.titleDetails,
-             backgroundColor: 'purple',
            }}
          >
            {' '}

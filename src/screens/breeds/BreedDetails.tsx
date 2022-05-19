@@ -50,21 +50,6 @@ export const BreedDetails = ({route, navigation}: Props) => {
           <Text style={styles.subTitle}>{breed.alt_names}</Text>
         </View>
 
-
-        {/* Boton para cerrar
-        <View style={styles.backButton}>
-          <TouchableOpacity onPress={() => navigation.pop()}>
-            <Text
-              style={{
-                ...styles.titleDetails,
-                backgroundColor: 'purple',
-              }}
-            >
-              {' '}
-              BACK{' '}
-            </Text>
-          </TouchableOpacity>
-        </View> */}
         <CloseBtn /> 
       </ScrollView>
     );

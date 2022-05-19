@@ -8,7 +8,6 @@ export const useImages = (categoryid: Number, limit: Number) => {
   const [page, setPage] = useState(0);
   const [categoryID, setNewCategory] = useState(categoryid);
 
-  
   let type = '';
   if (limit > 1) {
     type = 'gif,jpg,png';
@@ -18,38 +17,30 @@ export const useImages = (categoryid: Number, limit: Number) => {
   useEffect(() => {
     getCategories();
   }, []);
-  const setNewImage=async (newCategory:number)=>{
-    console.log("reloading...")
-    setIsLoading(true)
+  const setNewImage = async (newCategory: number) => {
+    setIsLoading(true);
     const categories = await catsApi.get<ImageByCategory[]>('/images/search', {
-      params:{category_ids: newCategory, limit, page, mime_types: type},
+      params: {category_ids: newCategory, limit, page, mime_types: type},
     });
-    setImages([categories.data[0]]);
-    console.log("done...")
-    setIsLoading(false)
+    setImages(categories.data);
+    setIsLoading(false);
+  };
 
-  }
-
-  const reloadData= async () => {
-    console.log("reloading...")
-    setPage(0)
+  const reloadData = async () => {
+    setPage(0);
     setImages([]);
-   loadMore();
-     setIsLoading(false)
-    console.log("done...")
-
-  
-  }
+    loadMore();
+    setIsLoading(false);
+  };
   const getCategories = async () => {
     setIsLoading(true);
     loadMore();
-         setIsLoading(false)
-  
+    setIsLoading(false);
   };
 
   const loadMore = async () => {
     const categories = await catsApi.get<ImageByCategory[]>('/images/search', {
-      params:{category_ids: categoryID, limit, page, mime_types: type},
+      params: {category_ids: categoryID, limit, page, mime_types: type},
     });
 
     setImages([...imagesByCategory, ...categories.data]);
@@ -64,6 +55,6 @@ export const useImages = (categoryid: Number, limit: Number) => {
     imagesByCategory,
     reloadData,
     loadMore,
-    setNewImage
+    setNewImage,
   };
 };
