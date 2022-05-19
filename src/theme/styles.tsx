@@ -1,6 +1,12 @@
 import {StyleSheet} from 'react-native';
 //color: '#5856D6'
 export const styles = StyleSheet.create({
+  breedSubDetails: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    alignSelf: 'center',
+    
+  },
   globalContaier: {
     flex: 1,
     backgroundColor: 'white',
@@ -41,10 +47,10 @@ export const styles = StyleSheet.create({
     width: '75%',
     backgroundColor: 'rgba(192, 192, 192, 0.7)',
     paddingLeft: 15,
-    borderTopRightRadius:10,
-    borderBottomLeftRadius:20,
-    paddingBottom:5,
-    paddingTop:5,
+    borderTopRightRadius: 10,
+    borderBottomLeftRadius: 20,
+    paddingBottom: 5,
+    paddingTop: 5,
   },
   // getRandomBtn: {
   //  paddingTop:10,
@@ -116,8 +122,8 @@ export const styles = StyleSheet.create({
     elevation: 9,
     top: 20,
     righ: 5,
-    paddingTop:10,
-   paddingBottom:10,
+    paddingTop: 10,
+    paddingBottom: 10,
     backgroundColor: 'rgba(192, 192, 192, 0.7)',
     alignItems: 'center',
   },
