@@ -1,5 +1,5 @@
 import {StackScreenProps} from '@react-navigation/stack';
-import React, {useState, useRef, useContext} from 'react';
+import React, {useState, useRef, useContext, useEffect} from 'react';
 import {
   ImageSourcePropType,
   View,
@@ -11,7 +11,7 @@ import {
   Animated,
   TouchableOpacity,
 } from 'react-native';
-
+import SplashScreen from 'react-native-splash-screen'
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import {useAnimation} from '../hooks/useAnimation';
 import {FadeInImage} from '../components/FadeInImage';
@@ -51,6 +51,9 @@ export const SlidesScreen = ({navigation}: Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const {opacity, fadeIn} = useAnimation();
   const isVisible = useRef(false);
+useEffect(() => {
+  SplashScreen.hide();
+}, [])
 
   const renderItem = (item: Slide) => {
     return (

@@ -18,6 +18,7 @@ export const BreedsScreen = () => {
          onRefresh={getCats}
          refreshing={isLoading}
        data={breeds}
+       keyExtractor={(item=>item.id+item.name)}
       //  ItemSeparatorComponent={ () => <ItemSeparator />}
        renderItem={({item}) => <BreedOverview breed={item}/>
       }
