@@ -24,46 +24,47 @@ export const BreedDetails = ({route, navigation}: Props) => {
   const breed = route.params;
   const general: BreedInfo[] = [
     {
-      name_info: 'URL(OPT)',
-      info: breed.cfa_url,
-      icon: 'ios-person',
-    },
-    {
       name_info: 'Description',
       info: breed.description,
-      icon: 'ios-person',
+      icon: 'document-text-outline',
     },
     {
       name_info: 'Origin',
       info: breed.origin,
-      icon: 'ios-person',
+      icon: 'earth-outline',
     },
     {
       name_info: 'Life Span',
       info: breed.life_span,
-      icon: 'ios-person',
+      icon: 'hourglass-outline',
     },
+    {
+      name_info: 'URL',
+      info: breed.cfa_url,
+      icon: 'desktop-outline',
+      redirect:true
+    }
   ];
   const friendly: BreedInfo[] = [
     {
-      name_info: 'Cat (OPT)',
+      name_info: 'Cat',
       info: breed.cat_friendly,
-      icon: 'ios-person',
+      icon: 'logo-octocat',
     },
     {
       name_info: 'Child',
       info: breed.child_friendly,
-      icon: 'ios-person',
+      icon: 'people-outline',
     },
     {
       name_info: 'Dog',
       info: breed.dog_friendly,
-      icon: 'ios-person',
+      icon: 'paw-outline',
     },
     {
       name_info: 'People',
       info: breed.stranger_friendly,
-      icon: 'ios-person',
+      icon: 'walk-outline',
     },
   ];
 
@@ -71,87 +72,97 @@ export const BreedDetails = ({route, navigation}: Props) => {
     {
       name_info: 'Grommin',
       info: breed.grooming,
-      icon: 'ios-person',
+      icon: 'paw-outline',
     },
     {
       name_info: 'Hairles',
       info: breed.hairless,
-      icon: 'ios-person',
+      icon: 'rose-outline',
     },
     {
       name_info: ' Health issues',
       info: breed.health_issues,
-      icon: 'ios-person',
+      icon: 'bandage-outline',
     },
     {
       name_info: 'Hypoallergenic',
       info: breed.hypoallergenic,
-      icon: 'ios-person',
+      icon: 'medkit-outline',
     },
   ];
   const physical: BreedInfo[] = [
-    {name_info: 'Energy level', info: breed.energy_level, icon: 'ios-person'},
+    {name_info: 'Energy level', 
+    info: breed.energy_level,
+     icon: 'battery-full'},
 
-    {name_info: 'Intelligence', info: breed.intelligence, icon: 'ios-person'},
+    {name_info: 'Intelligence', 
+    info: breed.intelligence,
+     icon: 'library'},
 
-    {name_info: 'Natural', info: breed.natural, icon: 'ios-person'},
+    {name_info: 'Natural',
+     info: breed.natural, 
+     icon: 'leaf'},
 
-    {name_info: 'Rare', info: breed.rare, icon: 'ios-person'},
+    {name_info: 'Rare',
+     info: breed.rare,
+      icon: 'planet-outline'},
 
     {
       name_info: 'Shedding Level',
       info: breed.shedding_level,
-      icon: 'ios-person',
+      icon: 'basketball-outline',
     },
 
     {
       name_info: 'Suppressed Tail',
       info: breed.suppressed_tail,
-      icon: 'ios-person',
+      icon: 'alert-outline',
     },
 
-    {name_info: 'Short Legs', info: breed.short_legs, icon: 'ios-person'},
+    {name_info: 'Short Legs',
+     info: breed.short_legs, 
+    icon: 'body-outline'},
   ];
   const social: BreedInfo[] = [
     {
       name_info: 'Adaptability',
       info: breed.adaptability,
-      icon: 'ios-person',
+      icon: 'happy-outline',
     },
     {
       name_info: 'Affection Level',
       info: breed.affection_level,
-      icon: 'ios-person',
+      icon: 'heart-circle-outline',
     },
     {
-      name_info: 'Bidability (OPT)',
+      name_info: 'Bidability',
       info: breed.bidability,
-      icon: 'ios-person',
+      icon: 'footsteps-outline',
     },
     {
       name_info: 'Experimental',
       info: breed.experimental,
-      icon: 'ios-person',
+      icon: 'flask-outline',
     },
     {
       name_info: 'Indoor',
       info: breed.indoor,
-      icon: 'ios-person',
+      icon: 'home-outline',
     },
     {
-      name_info: 'Lap (OPT)',
+      name_info: 'Lap',
       info: breed.lap,
-      icon: 'ios-person',
+      icon: 'heart-outline',
     },
     {
       name_info: 'Rex',
       info: breed.rex,
-      icon: 'ios-person',
+      icon: 'book-outline',
     },
     {
       name_info: 'Social Needs',
       info: breed.social_needs,
-      icon: 'ios-person',
+      icon: 'fitness-outline',
     },
   ];
 
@@ -200,7 +211,7 @@ export const BreedDetails = ({route, navigation}: Props) => {
           <BreedDetailsSubSection name={titles[3]} info={physical} />
           {/* Social */}
           <BreedDetailsSubSection name={titles[4]} info={social} />
-          {/* <Icon name="ios-person" size={30} color="#4F8EF7" /> */}
+          {/* <Icon name="ios-person" size={30} color={descriptionsColor} /> */}
         </View>
 
         <CloseBtn />

@@ -9,6 +9,7 @@ import {styles} from '../theme/styles';
 import {LoadingScreen} from './LoadingScreen';
 import {Image} from '../interfaces/cats';
 import { CloseBtn } from '../components/CloseBtn';
+import  Icon  from 'react-native-vector-icons/Ionicons';
 
 export const ImagesScreen = () => {
   const {categories} = useCategories();
@@ -40,7 +41,19 @@ export const ImagesScreen = () => {
               ),
           )
         )}
-         <View style={styles.backButton}>
+         <View style={{
+           position: 'absolute',
+           zIndex: 999,
+           elevation: 9,
+           top: 20,
+         //  righ: 10,
+           borderRadius:20,
+           paddingTop: 2,
+           paddingBottom: 2,
+           marginLeft:5,
+           backgroundColor: 'rgba(192, 192, 192, 0.7)',
+           alignItems: 'center',
+         }}>
        <TouchableOpacity 
       onPress={() => {
         const category =
@@ -54,11 +67,13 @@ export const ImagesScreen = () => {
            }}
          >
            {' '}
-           Reload{' '}
+           <Icon name='sync-outline' size={40} color='black'/>
+           {' '}
+           
          </Text>
        </TouchableOpacity>
      </View>
-     <View style={{...styles.title,width:"95%",borderRadius:20,marginTop:10,alignSelf:'center'}}>
+     <View style={{...styles.title,width:"95%",borderRadius:20,marginTop:10,alignSelf:'center',backgroundColor:'rgba(88,86,214,0.1)'}}>
         <Text style={{fontSize:20}}>
                If you want to see more images just click on the reload option!
            </Text> 

@@ -34,7 +34,8 @@ export const CategoryOverview = ({category}: Props) => {
               ...styles.titleDetails,
               alignSelf: 'center',
               paddingTop: 10,
-              paddingBottom: 5,
+              paddingBottom: 10,
+              textTransform: 'capitalize'
             }}
           >
             {category.name}
