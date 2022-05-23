@@ -3,8 +3,11 @@ import {ImagesScreen} from '../screens/ImagesScreen';
 import {BreedsStackNavigator} from './BreedsStackNavigator';
 import {CategoriesStackNavigator} from './CategoriesStackNavigator.';
 import React from 'react';
-import { View} from 'react-native';
+import {View} from 'react-native';
 import {FadeInImage} from '../components/FadeInImage';
+import { VideoHLSScreen } from '../screens/VideoHLSScreen';
+
+
 const Tab = createBottomTabNavigator();
 
 export const TabsNavigator = () => {
@@ -65,6 +68,25 @@ export const TabsNavigator = () => {
             />
           );
         }
+
+      case 'Video':
+        if (focused) {
+          return (
+            <FadeInImage
+              uri=""
+              localImg={require('../assets/CatIcons/4.2.png')}
+              style={{width: 35, height: 35}}
+            />
+          );
+        } else {
+          return (
+            <FadeInImage
+              uri=""
+              localImg={require('../assets/CatIcons/4.1.png')}
+              style={{width: 35, height: 35}}
+            />
+          );
+        }
     }
   };
   return (
@@ -80,6 +102,7 @@ export const TabsNavigator = () => {
       <Tab.Screen name="Breeds" component={BreedsStackNavigator} />
       <Tab.Screen name="Categories" component={CategoriesStackNavigator} />
       <Tab.Screen name="Images" component={ImagesScreen} />
+      <Tab.Screen name="Video" component={VideoHLSScreen} />
     </Tab.Navigator>
   );
 };
