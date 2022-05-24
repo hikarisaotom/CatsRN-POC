@@ -5,7 +5,6 @@ export const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: 'bold',
     alignSelf: 'center',
-    
   },
   globalContaier: {
     flex: 1,
@@ -126,5 +125,19 @@ export const styles = StyleSheet.create({
     paddingBottom: 10,
     backgroundColor: 'rgba(192, 192, 192, 0.7)',
     alignItems: 'center',
+  },
+
+  playerButton: {
+    alignSelf: 'center',
+    backgroundColor: 'rgba(192, 192, 192, 0.7)',
+    // paddingLeft: 10,
+    fontSize: 10,
+    alignContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    justifyContent: 'center',
+    height: '80%',
+    borderRadius: 20,
+    marginLeft: 10,
   },
 });
