@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {StackScreenProps} from '@react-navigation/stack';
 import {Dimensions, SafeAreaView, ScrollView, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -42,8 +42,8 @@ export const BreedDetails = ({route, navigation}: Props) => {
       name_info: 'URL',
       info: breed.cfa_url,
       icon: 'desktop-outline',
-      redirect:true
-    }
+      redirect: true,
+    },
   ];
   const friendly: BreedInfo[] = [
     {
@@ -91,21 +91,13 @@ export const BreedDetails = ({route, navigation}: Props) => {
     },
   ];
   const physical: BreedInfo[] = [
-    {name_info: 'Energy level', 
-    info: breed.energy_level,
-     icon: 'battery-full'},
+    {name_info: 'Energy level', info: breed.energy_level, icon: 'battery-full'},
 
-    {name_info: 'Intelligence', 
-    info: breed.intelligence,
-     icon: 'library'},
+    {name_info: 'Intelligence', info: breed.intelligence, icon: 'library'},
 
-    {name_info: 'Natural',
-     info: breed.natural, 
-     icon: 'leaf'},
+    {name_info: 'Natural', info: breed.natural, icon: 'leaf'},
 
-    {name_info: 'Rare',
-     info: breed.rare,
-      icon: 'planet-outline'},
+    {name_info: 'Rare', info: breed.rare, icon: 'planet-outline'},
 
     {
       name_info: 'Shedding Level',
@@ -119,9 +111,7 @@ export const BreedDetails = ({route, navigation}: Props) => {
       icon: 'alert-outline',
     },
 
-    {name_info: 'Short Legs',
-     info: breed.short_legs, 
-    icon: 'body-outline'},
+    {name_info: 'Short Legs', info: breed.short_legs, icon: 'body-outline'},
   ];
   const social: BreedInfo[] = [
     {
@@ -173,6 +163,24 @@ export const BreedDetails = ({route, navigation}: Props) => {
     'Physical Description',
     'Social',
   ];
+  useEffect(() => {
+    showNavigators(true);
+    navigation.addListener('beforeRemove', e => {
+      showNavigators(false);
+    });
+  }, []);
+
+  const showNavigators = (show: boolean) => {
+    navigation.setOptions({
+      title: breed.name,
+      headerBackTitle: 'Breeds',
+      headerShown: show,
+    });
+    navigation.getParent()?.getParent()?.setOptions({
+      // title: 'Breeds',
+      headerShown: !show,
+    });
+  };
 
   return (
     <SafeAreaView>
@@ -213,8 +221,6 @@ export const BreedDetails = ({route, navigation}: Props) => {
           <BreedDetailsSubSection name={titles[4]} info={social} />
           {/* <Icon name="ios-person" size={30} color={descriptionsColor} /> */}
         </View>
-
-        <CloseBtn />
       </ScrollView>
     </SafeAreaView>
   );

@@ -10,8 +10,18 @@ import {LoadingScreen} from './LoadingScreen';
 import {Image} from '../interfaces/cats';
 import { CloseBtn } from '../components/CloseBtn';
 import  Icon  from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/core';
 
 export const ImagesScreen = () => {
+  const navigation=useNavigation()
+  useEffect(() => {
+    navigation.addListener('focus', e => {
+      navigation
+    .getParent()
+    
+    ?.setOptions({title: 'Random Images', headerShown: true});
+    });
+  }, [navigation]);
   const {categories} = useCategories();
   const {imagesByCategory, setNewImage, isLoading} = useImages(1, 2);
   return (

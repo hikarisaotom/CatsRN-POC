@@ -8,7 +8,7 @@ import {RootCategoriesParams} from '../../navigators/CategoriesStackNavigator.';
 import {StackScreenProps} from '@react-navigation/stack';
 import {FadeInImage} from '../../components/FadeInImage';
 import {CloseBtn} from '../../components/CloseBtn';
-import { ItemSeparator } from '../ItemSeparator';
+import {ItemSeparator} from '../ItemSeparator';
 
 interface Props
   extends StackScreenProps<RootCategoriesParams, 'CategoryDetails'> {}
@@ -22,36 +22,67 @@ export const CategoryDetails = ({route, navigation}: Props) => {
   const screenHeight = Dimensions.get('screen').height;
   const screenWidth = Dimensions.get('screen').width;
 
+  useEffect(() => {
+    showNavigators(true);
+    navigation.addListener('beforeRemove', e => {
+      showNavigators(false);
+    });
+  }, []);
+
+  const showNavigators = (show: boolean) => {
+    navigation.setOptions({
+      title: category.name,
+      headerBackTitle: 'Categories',
+      headerShown: show,
+    });
+    navigation.getParent()?.getParent()?.setOptions({
+      //title: 'Categories',
+      headerShown: !show,
+    });
+  };
   if (isLoading) return <LoadingScreen />;
+
   return (
     <SafeAreaView>
       <View>
-      <CloseBtn />
         <FlatList
-        ItemSeparatorComponent={()=><ItemSeparator/>}
+          ItemSeparatorComponent={() => <ItemSeparator />}
           onRefresh={reloadData}
           refreshing={isLoading}
-          ListHeaderComponent={<View style={{
-            backgroundColor:'rgba(88,86,214,0.3)'
-          // backgroundColor:'rgba(192,192,192,0.8)',
-            }}>
-              
-            <Text  style={{
-            ...styles.titleDetails,
-            alignSelf: 'center',
-            paddingTop: 10,
-            paddingBottom: 10,
-            textTransform: 'capitalize', 
-          }}> Enjoy the pictures of cats in!</Text>
-<Text  style={{
-            ...styles.titleDetails,
-            alignSelf: 'center',
-            paddingTop: 10,
-            paddingBottom: 10,
-            textTransform: 'capitalize', 
-            fontStyle:'italic'
-          }}> {category.name}</Text>
-          </View>}
+          ListHeaderComponent={
+            <View
+              style={{
+                backgroundColor: 'rgba(88,86,214,0.3)',
+                // backgroundColor:'rgba(192,192,192,0.8)',
+              }}
+            >
+              <Text
+                style={{
+                  ...styles.titleDetails,
+                  alignSelf: 'center',
+                  paddingTop: 10,
+                  paddingBottom: 10,
+                  textTransform: 'capitalize',
+                }}
+              >
+                {' '}
+                Enjoy the pictures of cats in!
+              </Text>
+              <Text
+                style={{
+                  ...styles.titleDetails,
+                  alignSelf: 'center',
+                  paddingTop: 10,
+                  paddingBottom: 10,
+                  textTransform: 'capitalize',
+                  fontStyle: 'italic',
+                }}
+              >
+                {' '}
+                {category.name}
+              </Text>
+            </View>
+          }
           keyExtractor={(item, index) => index + item.toString()}
           style={{width: screenWidth, height: screenHeight}}
           data={imagesByCategory}
@@ -66,7 +97,7 @@ export const CategoryDetails = ({route, navigation}: Props) => {
                   height: undefined,
                   aspectRatio: 1,
                   resizeMode: 'cover',
-                 // marginBottom:2
+                  // marginBottom:2
                 }
               }
             />
@@ -75,7 +106,6 @@ export const CategoryDetails = ({route, navigation}: Props) => {
           onEndReachedThreshold={0.7}
           ListFooterComponent={() => <LoadingScreen />}
         />
-        
       </View>
     </SafeAreaView>
   );

@@ -24,6 +24,7 @@ export const CategoryOverview = ({category}: Props) => {
         borderWidth: 3,
       }}
       onPress={() =>
+        
         navigation.navigate({name: 'CategoryDetails', params: category})
       }
     >
