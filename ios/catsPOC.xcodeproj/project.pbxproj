@@ -13,6 +13,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		72017508283DB65E00DEB3CD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72017507283DB65E00DEB3CD /* GoogleService-Info.plist */; };
+		721FB68D283EE03B006EA219 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 721FB68C283EE03B006EA219 /* main.jsbundle */; };
 		72F7897F28373D2600B3AAE4 /* cat.png in Resources */ = {isa = PBXBuildFile; fileRef = 72F7897E28373D2600B3AAE4 /* cat.png */; };
 		7699B88040F8A987B510C191 /* libPods-catsPOC-catsPOCTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-catsPOC-catsPOCTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -45,6 +46,7 @@
 		5DCACB8F33CDC322A6C60F78 /* libPods-catsPOC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-catsPOC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72017504283DB4E600DEB3CD /* catsPOC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = catsPOC.entitlements; path = catsPOC/catsPOC.entitlements; sourceTree = "<group>"; };
 		72017507283DB65E00DEB3CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		721FB68C283EE03B006EA219 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = catsPOC/main.jsbundle; sourceTree = "<group>"; };
 		72F7897D2836E53D00B3AAE4 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		72F7897E28373D2600B3AAE4 /* cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat.png; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = catsPOC/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 		13B07FAE1A68108700A75B9A /* catsPOC */ = {
 			isa = PBXGroup;
 			children = (
+				721FB68C283EE03B006EA219 /* main.jsbundle */,
 				72017504283DB4E600DEB3CD /* catsPOC.entitlements */,
 				72F7897E28373D2600B3AAE4 /* cat.png */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -261,6 +264,7 @@
 			files = (
 				72F7897F28373D2600B3AAE4 /* cat.png in Resources */,
 				72017508283DB65E00DEB3CD /* GoogleService-Info.plist in Resources */,
+				721FB68D283EE03B006EA219 /* main.jsbundle in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -271,7 +275,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -279,7 +283,7 @@
 			name = "Bundle React Native code and images";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
