@@ -164,11 +164,13 @@ export const BreedDetails = ({route, navigation}: Props) => {
     'Social',
   ];
   useEffect(() => {
-    showNavigators(true);
+    navigation.addListener('focus', e => {
+      showNavigators(true);
+    });
     navigation.addListener('beforeRemove', e => {
       showNavigators(false);
     });
-  }, []);
+  }, [navigation]);
 
   const showNavigators = (show: boolean) => {
     navigation.setOptions({

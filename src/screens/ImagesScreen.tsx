@@ -44,7 +44,7 @@ export const ImagesScreen = () => {
                     
                     width: '100%',
                     height: undefined,
-                    aspectRatio: 0.6,
+                    aspectRatio: 0.63,
                     resizeMode: 'cover',
                   }}
                 />

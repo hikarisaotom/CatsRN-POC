@@ -17,10 +17,9 @@ export const PricipalNavigator = () => {
       }}
     >
    
-   <Stack.Screen name="TabsNavigatorHomeScreen" component={ LateralMenu } />
-
-      {/* <Stack.Screen name="TabsNavigatorHomeScreen" component={ TabsNavigator } /> */}
-      <Stack.Screen name="InitialHomeScreen" component={SlidesScreen} />
+   {/* <Stack.Screen name="TabsNavigatorHomeScreen" component={ LateralMenu } /> */}
+   <Stack.Screen name="InitialHomeScreen" component={SlidesScreen} />
+      <Stack.Screen name="TabsNavigatorHomeScreen" component={ TabsNavigator } />
     </Stack.Navigator>
   );
 };

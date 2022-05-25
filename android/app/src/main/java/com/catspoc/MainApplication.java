@@ -1,11 +1,13 @@
 package com.catspoc;
 // react-native-splash-screen >= 0.3.1
 //import org.devio.rn.splashscreen.SplashScreenReactPackage;
-
+import com.brentvatne.react.ReactVideoPackage;
 import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.brentvatne.react.ReactVideoPackage;
+import com.brentvatne.react.ReactVideoPackage;
 import org.devio.rn.splashscreen.SplashScreenReactPackage;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
@@ -32,7 +34,10 @@ public class MainApplication extends Application implements ReactApplication {
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
           // packages.add(   new SplashScreenReactPackage());
-           
+          // packages.add(new MainReactPackage());
+          // packages.add(new ReactVideoPackage());
+            
+            
           return packages;
         }
 

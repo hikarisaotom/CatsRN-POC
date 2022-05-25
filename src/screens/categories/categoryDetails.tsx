@@ -23,11 +23,14 @@ export const CategoryDetails = ({route, navigation}: Props) => {
   const screenWidth = Dimensions.get('screen').width;
 
   useEffect(() => {
-    showNavigators(true);
+   
+    navigation.addListener('focus', e => {
+      showNavigators(true);
+    });
     navigation.addListener('beforeRemove', e => {
       showNavigators(false);
     });
-  }, []);
+  }, [navigation]);
 
   const showNavigators = (show: boolean) => {
     navigation.setOptions({
