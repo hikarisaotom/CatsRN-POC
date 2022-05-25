@@ -30,6 +30,7 @@ export const BreedsScreen = ({route, navigation}: Props) => {
 
   return (
     <SafeAreaView style={styles.globalContaier}>
+      
        <FlatList
          onRefresh={getCats}
          refreshing={isLoading}
