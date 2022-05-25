@@ -29,6 +29,13 @@
             {
               "client_id": "985259100088-no0s0bvft9mmeunjkhmp0qo8oeq381tq.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "985259100088-4u2pkrmcp2ctiqffedlk19g8ko8afli0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.catsPOC"
+              }
             }
           ]
         }
