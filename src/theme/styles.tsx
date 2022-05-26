@@ -140,4 +140,22 @@ export const styles = StyleSheet.create({
     borderRadius: 20,
     marginLeft: 10,
   },
+
+  logInBtn:{
+    alignSelf: 'center',
+    backgroundColor: 'rgba(192, 192, 192, 0.7)',
+    alignContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
+    justifyContent: 'center',
+    height: 30,
+    width:'80%',
+    borderRadius: 20,
+    marginLeft: 10,
+    marginBottom:20
+  },
+  textLogInBtn:{
+    fontSize:20,
+    fontWeight:'bold'
+  }
 });
