@@ -181,4 +181,7 @@ inputFieldIOS: {
     borderBottomWidth: 2,
     paddingBottom: 4
 },
+tabImage:{
+  width: 35, height: 35,marginTop:5
+}
 });
