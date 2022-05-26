@@ -12,8 +12,8 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		72017508283DB65E00DEB3CD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72017507283DB65E00DEB3CD /* GoogleService-Info.plist */; };
 		721FB68D283EE03B006EA219 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 721FB68C283EE03B006EA219 /* main.jsbundle */; };
+		72CA562B283EFFF90078BDA4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 72CA562A283EFFF90078BDA4 /* GoogleService-Info.plist */; };
 		72F7897F28373D2600B3AAE4 /* cat.png in Resources */ = {isa = PBXBuildFile; fileRef = 72F7897E28373D2600B3AAE4 /* cat.png */; };
 		7699B88040F8A987B510C191 /* libPods-catsPOC-catsPOCTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-catsPOC-catsPOCTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -45,8 +45,9 @@
 		5B7EB9410499542E8C5724F5 /* Pods-catsPOC-catsPOCTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-catsPOC-catsPOCTests.debug.xcconfig"; path = "Target Support Files/Pods-catsPOC-catsPOCTests/Pods-catsPOC-catsPOCTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-catsPOC.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-catsPOC.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		72017504283DB4E600DEB3CD /* catsPOC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = catsPOC.entitlements; path = catsPOC/catsPOC.entitlements; sourceTree = "<group>"; };
-		72017507283DB65E00DEB3CD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		721FB68C283EE03B006EA219 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = catsPOC/main.jsbundle; sourceTree = "<group>"; };
+		72CA5629283EFC9A0078BDA4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		72CA562A283EFFF90078BDA4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		72F7897D2836E53D00B3AAE4 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		72F7897E28373D2600B3AAE4 /* cat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cat.png; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = catsPOC/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -94,6 +95,8 @@
 		13B07FAE1A68108700A75B9A /* catsPOC */ = {
 			isa = PBXGroup;
 			children = (
+				72CA5629283EFC9A0078BDA4 /* GoogleService-Info.plist */,
+				72CA562A283EFFF90078BDA4 /* GoogleService-Info.plist */,
 				721FB68C283EE03B006EA219 /* main.jsbundle */,
 				72017504283DB4E600DEB3CD /* catsPOC.entitlements */,
 				72F7897E28373D2600B3AAE4 /* cat.png */,
@@ -135,7 +138,6 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				72017507283DB65E00DEB3CD /* GoogleService-Info.plist */,
 				72F7897C2836E4EF00B3AAE4 /* Fonts */,
 				13B07FAE1A68108700A75B9A /* catsPOC */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -263,8 +265,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				72F7897F28373D2600B3AAE4 /* cat.png in Resources */,
-				72017508283DB65E00DEB3CD /* GoogleService-Info.plist in Resources */,
 				721FB68D283EE03B006EA219 /* main.jsbundle in Resources */,
+				72CA562B283EFFF90078BDA4 /* GoogleService-Info.plist in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
