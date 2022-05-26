@@ -148,11 +148,12 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     textAlign: 'center',
     justifyContent: 'center',
-    height: 30,
+    height: 50,
     width:'80%',
     borderRadius: 20,
     marginLeft: 10,
-    marginBottom:20
+    marginTop:20,
+    marginBottom:10
   },
   textLogInBtn:{
     fontSize:20,
@@ -162,16 +163,18 @@ export const styles = StyleSheet.create({
     color: 'black',
     fontSize: 30,
     fontWeight: 'bold',
-    marginTop: 20
+    marginTop: 20,
+    textAlign:'center'
 },
 label: {
     marginTop: 25,
-    color: 'white',
+    color: 'black',
     fontWeight: 'bold',
 },
 inputField: {
     color:'white',
     fontSize: 20,
+    paddingLeft:10
 },
 inputFieldIOS: {
     borderBottomColor: 'white',

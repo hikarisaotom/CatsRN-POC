@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {StackScreenProps} from '@react-navigation/stack';
 import {Dimensions, SafeAreaView, ScrollView, Text, View} from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
@@ -8,6 +8,7 @@ import {styles} from '../../theme/styles';
 import {CloseBtn} from '../../components/CloseBtn';
 import {ItemSeparator} from '../ItemSeparator';
 import {BreedDetailsSubSection} from '../../components/BreedDetailsSubSection';
+import {AuthContext} from '../../context/AuthContext';
 const screenHeight = Dimensions.get('screen').height;
 
 /**HERE**/
@@ -183,9 +184,10 @@ export const BreedDetails = ({route, navigation}: Props) => {
       headerShown: !show,
     });
   };
-
+ 
   return (
     <SafeAreaView>
+     
       <ScrollView>
         <View style={styles.imageContainer}>
           <View style={styles.imageBorder}>
