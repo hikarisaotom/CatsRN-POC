@@ -1,48 +1,64 @@
-import {AuthState} from './AuthContext';
-type AuthAction =
-  | {
-      type: 'signIn';
+import {FirebaseAuthTypes} from '@react-native-firebase/auth';
+export interface AuthState {
+    status: 'checking' | 'authenticated' | 'not-authenticated';
+    token: string | null;
+    errorMessage: string;
+    user: FirebaseAuthTypes.User | null;
+}
+
+export interface RegisterData {
+    email:   string;
+    password: string;
+}
+
+type AuthAction = 
+    | { type: 'signUp', payload: { token: string, user: FirebaseAuthTypes.User } }
+    | { type: 'addError', payload: string }
+    | { type: 'removeError' }
+    | { type: 'notAuthenticated' }
+    | { type: 'logout' }
+
+
+export const authReducer = ( state: AuthState, action: AuthAction ): AuthState => {
+
+    switch (action.type) {
+        case 'addError':
+            return {
+                ...state,
+                user: null,
+                status: 'not-authenticated',
+                token: null,
+                errorMessage: action.payload
+            }
+    
+        case 'removeError':
+            return {
+                ...state,
+                errorMessage: ''
+            };
+
+        case 'signUp':
+            return {
+                ...state,
+                errorMessage: '',
+                status: 'authenticated',
+                token: action.payload.token,
+                user: action.payload.user
+            }
+
+        case 'logout':
+        case 'notAuthenticated':
+            return {
+                ...state,
+                status: 'not-authenticated',
+                token: null,
+                user: null
+            }
+
+        default:
+            return state;
     }
-  | {type: 'viewChanged'; payload: string}
-  | {
-      type: 'logOut';
-    }
-  | {
-      type: 'changeUsername';
-      payload: string;
-    };
 
-export const authReducer = (
-  state: AuthState,
-  action: AuthAction,
-): AuthState => {
-  switch (action.type) {
-    case 'signIn':
-      return {
-        ...state,
-        isLoggedIn: true,
-        username: 'no-username-yet',
-      };
 
-    case 'viewChanged':
-      return {
-        ...state,
-        favoriteIcon: action.payload,
-      };
-    case 'logOut':
-      return {
-        ...state,
-        isLoggedIn: false,
-        favoriteIcon: undefined,
-        username: undefined,
-      };
-    case 'changeUsername':
-      return {
-        ...state,
-        username: action.payload,
-      };
+}
 
-    default:
-      return state;
-  }
-};

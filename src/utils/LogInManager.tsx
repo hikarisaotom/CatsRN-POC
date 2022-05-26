@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 
 export const createAccount = async(email: string, password: string) => {
   await auth().createUserWithEmailAndPassword(
+
       email, password
     ).then(() => {
       console.log('User account created & signed in!');

@@ -157,5 +157,25 @@ export const styles = StyleSheet.create({
   textLogInBtn:{
     fontSize:20,
     fontWeight:'bold'
-  }
+  },
+  titleLogIn: {
+    color: 'black',
+    fontSize: 30,
+    fontWeight: 'bold',
+    marginTop: 20
+},
+label: {
+    marginTop: 25,
+    color: 'white',
+    fontWeight: 'bold',
+},
+inputField: {
+    color:'white',
+    fontSize: 20,
+},
+inputFieldIOS: {
+    borderBottomColor: 'white',
+    borderBottomWidth: 2,
+    paddingBottom: 4
+},
 });

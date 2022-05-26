@@ -1,73 +1,138 @@
-import {createContext, useReducer} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import {createContext, useReducer, useEffect} from 'react';
 import React from 'react';
-import { authReducer } from './authReducer';
+import {authReducer, AuthState, RegisterData} from './authReducer';
+import {FirebaseAuthTypes} from '@react-native-firebase/auth';
+import auth from '@react-native-firebase/auth';
 
-//Definy how willl look or what information will I have here
-export interface AuthState {
-  isLoggedIn: boolean;
-  username?: string;
-  favoriteIcon?: string;
-}
-
-//initial state of the information
-export const authInitialState: AuthState = {
-  isLoggedIn: false,
-  username: undefined,
-  favoriteIcon: undefined,
+//Type of information that the children of the context will see
+type AuthContextprops = {
+  status: 'checking' | 'authenticated' | 'not-authenticated';
+  token: string | null;
+  user: FirebaseAuthTypes.User | null;
+  errorMessage: string;
+  signUp: (data: RegisterData) => void;
+  signIn: (data: RegisterData) => void;
+  logOut: () => void;
+  removeError: () => void;
 };
 
+//initial state of the app that will be handled by the reducer
+const AuthInitialState: AuthState = {
+  status: 'checking',
+  token: null,
+  user: null,
+  errorMessage: '',
+};
+//Create the context with the type of props or data that will be share to the children
+export const AuthContext = createContext({} as AuthContextprops);
 
-// *************************************************************************
-//definy what the context will pass to the children
-//we will used it to say to react how to use it and what exposses the context
-export interface AuthContextProps {
-  authState: AuthState;
-  sigIn: () => void;
-  changeIcon: (icon:string) => void;
-  logOut: () => void;
-  changeUsername: (userName:string) => void;
-}
+//we create the provider of the context, this will contain the children components
 
-//create the context
-//we create the context an indicate the props are of the type we difined before
-export const AuthContex = createContext({} as AuthContextProps);
-
-
-// *************************************************************************
-//component which is the provider of the state
-//thismeans that this is the father component taht will pass the info to the children?
-export const AuthProvider = ({children}:any) => {
-
-  const [authState, dispatch] = useReducer(authReducer,authInitialState)
-
-  const sigInToReducer=()=>{
-    dispatch({type:'signIn'})
+export const AuthProvider = ({children}: any) => {
+  {
+    /* connecting the reducer with the state
+we have the state, when something happends then we trigger the dispatch
+this dispatch will be caught by the  reducer wich will execute the acction and return a new state*/
   }
+  const [state, dispatch] = useReducer(authReducer, AuthInitialState);
 
-  const changeFavIcon=(iconName:string)=>{
-    dispatch({type:'iconClicked',payload:iconName})
-  }
+  // useEffect(() => {
+  //   checkToken();
+  // }, []);
 
-  const logOut=()=>{
-    dispatch({type:'logOut'})
-  }
-  const changeUsername=(userName:string)=>{
-    dispatch({type:'changeUsername',payload:userName})
-  }
-  
-
-// *************************************************************************
-
-  return(
+  const checkToken = async () => {
+    //   const token = await AsyncStorage.getItem('token');
+    //   //there is no token,not autenticated
+    //   if (!token) return dispatch({type: 'notAuthenticated'});
+    //   //validate token
+    //   const resp = await cafeApi.get('/auth');
+    //   if (resp.status !== 200) {
+    //     return dispatch({type: 'notAuthenticated'});
+    //   }
+    //   dispatch({
+    //     type: 'signUp',
+    //     payload: {
+    //       token: resp.data.token,
+    //       user: resp.data.usuario,
+    //     },
+    //   });
+  };
+  const signUp = async ({email, password}: RegisterData) => {
+    try {
+      const data = await auth().createUserWithEmailAndPassword(email, password);
+      console.log('User account created & signed in!');
+      const token = await data.user.getIdToken();
+      dispatch({
+        type: 'signUp',
+        payload: {
+          token: token,
+          user: data.user,
+        },
+      });
+      await AsyncStorage.setItem('token', token);
+    } catch (error) {
+      let msg = error + '';
+      if (error.code === 'auth/email-already-in-use') {
+        msg = 'That email address is already in use!';
+      }
+      if (error.code === 'auth/invalid-email') {
+        msg = 'That email address is invalid!';
+      }
+      console.error(msg);
+      dispatch({
+        type: 'addError',
+        payload: msg || 'Please check the info',
+      });
+    }
+  };
+  const signIn = async ({email, password}: RegisterData) => {
+    try {
+      const data = await auth().signInWithEmailAndPassword(email, password);
+      console.log('User loggedin!', data.user.email);
     
-    <AuthContex.Provider value={{
-        authState:authState,
-        sigIn:sigInToReducer,
-        changeIcon:changeFavIcon,
-        logOut:logOut,
-        changeUsername:changeUsername
-    }}>
-        {children}
-    </AuthContex.Provider>
-  ) 
+      const token = await data.user.getIdToken();
+      dispatch({
+        type: 'signUp',
+        payload: {
+          token: token,
+          user: data.user,
+        },
+      });
+      await AsyncStorage.setItem('token', token);
+    } catch (error) {
+      let msg = 'Could not log in ' + error;
+      console.error(msg);
+      dispatch({
+        type: 'addError',
+        payload: msg || 'Please check the info',
+      });
+    }
+  };
+
+  const logOut = async () => {
+    const data = await auth()
+      .signOut()
+      .then(() => console.log('User logged out!'));
+    await AsyncStorage.removeItem('token');
+    dispatch({type: 'logout'});
+  };
+  const removeError = () => {
+    dispatch({type: 'removeError'});
+  };
+
+  return (
+    //this is the context we created before
+    <AuthContext.Provider
+      value={{
+        ...state,
+        signUp,
+        signIn,
+        logOut,
+        removeError,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
 };
