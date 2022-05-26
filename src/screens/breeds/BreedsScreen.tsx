@@ -77,7 +77,6 @@ export const BreedsScreen = ({route, navigation}: Props) => {
             marginTop: 10,
           }}
         />
-
         <FlatList
           onRefresh={getCats}
           refreshing={isLoading}

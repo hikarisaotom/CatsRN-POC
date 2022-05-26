@@ -19,7 +19,7 @@ type AuthContextprops = {
 
 //initial state of the app that will be handled by the reducer
 const AuthInitialState: AuthState = {
-  status: 'checking',
+  status: 'not-authenticated',
   token: null,
   user: null,
   errorMessage: '',
@@ -42,6 +42,7 @@ this dispatch will be caught by the  reducer wich will execute the acction and r
   // }, []);
 
   const checkToken = async () => {
+    //dispatch({type: 'logout'});
     //   const token = await AsyncStorage.getItem('token');
     //   //there is no token,not autenticated
     //   if (!token) return dispatch({type: 'notAuthenticated'});
