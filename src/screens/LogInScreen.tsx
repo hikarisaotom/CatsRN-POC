@@ -22,11 +22,15 @@ export const LogInScreen = ({navigation}: Props) => {
   const {
     signIn,
     errorMessage,
+    message,
     removeError,
+    removeMessage,
     signUp,
     logOut,
     user,
     status,
+ 
+    
   } = useContext(AuthContext);
 
   const {email, password, onChange} = useForm({
@@ -34,6 +38,7 @@ export const LogInScreen = ({navigation}: Props) => {
     password: 'SuperSecretPassword!',
   });
   const [action, setAction] = useState(true);
+
   useEffect(() => {
     if (errorMessage.length === 0) return;
     Alert.alert('An error has ocurred', errorMessage, [
@@ -43,12 +48,23 @@ export const LogInScreen = ({navigation}: Props) => {
       },
     ]);
   }, [errorMessage]);
-  
+
+  useEffect(() => {
+    if (message.length === 0) return;
+    Alert.alert('Good news!', message, [
+      {
+        text: 'Ok',
+        onPress: removeMessage,
+      },
+    ]);
+  }, [message]);
+
   useEffect(() => {
     navigation.setOptions({
       title: (status==='authenticated')?'Log Out':'Log In',
          });
   }, [status])
+
   const onLogin = () => {
     console.log('log in', {email, password});
     Keyboard.dismiss();
@@ -141,7 +157,7 @@ export const LogInScreen = ({navigation}: Props) => {
                 onPress={() => setAction(!action)}
               >
                 <Text
-                  style={{...styles.textLogInBtn, color: 'rgba(88,86,214,1)'}}
+                  style={{...styles.textLogInBtn, color: 'rgba(88,86,214,1)',marginTop:10}}
                 >
                   Want to sign {!action ? 'In' : 'Up'}?
                 </Text>

@@ -15,6 +15,8 @@ type AuthContextprops = {
   signIn: (data: RegisterData) => void;
   logOut: () => void;
   removeError: () => void;
+  message:string;
+  removeMessage: () => void;
 };
 
 //initial state of the app that will be handled by the reducer
@@ -23,6 +25,7 @@ const AuthInitialState: AuthState = {
   token: null,
   user: null,
   errorMessage: '',
+  message:''
 };
 //Create the context with the type of props or data that will be share to the children
 export const AuthContext = createContext({} as AuthContextprops);
@@ -72,6 +75,11 @@ this dispatch will be caught by the  reducer wich will execute the acction and r
         },
       });
       await AsyncStorage.setItem('token', token);
+      dispatch({
+        type: 'addMsg',
+        payload:'User succesfully created!',
+      });
+
     } catch (error) {
       let msg = error + '';
       if (error.code === 'auth/email-already-in-use') {
@@ -122,6 +130,9 @@ this dispatch will be caught by the  reducer wich will execute the acction and r
     dispatch({type: 'removeError'});
   };
 
+const removeMessage = () => {
+    dispatch({type: 'removeMsg'});
+  };
   return (
     //this is the context we created before
     <AuthContext.Provider
@@ -131,6 +142,7 @@ this dispatch will be caught by the  reducer wich will execute the acction and r
         signIn,
         logOut,
         removeError,
+       removeMessage
       }}
     >
       {children}
