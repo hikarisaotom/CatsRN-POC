@@ -43,7 +43,12 @@ export const LogInScreen = ({navigation}: Props) => {
       },
     ]);
   }, [errorMessage]);
-
+  
+  useEffect(() => {
+    navigation.setOptions({
+      title: (status==='authenticated')?'Log Out':'Log In',
+         });
+  }, [status])
   const onLogin = () => {
     console.log('log in', {email, password});
     Keyboard.dismiss();
@@ -72,7 +77,7 @@ export const LogInScreen = ({navigation}: Props) => {
             backgroundColor: 'white',
             flex: 1,
             justifyContent: 'center',
-            //  paddingBottom: 150,
+          //  paddingBottom: 150,
           }}
         >
           {/* Keyboard avoid view */}
@@ -85,14 +90,14 @@ export const LogInScreen = ({navigation}: Props) => {
               <Text style={styles.label}>Email:</Text>
               <TextInput
                 placeholder="Enter your Email:"
-                placeholderTextColor="rgba(255,255,255,0.7)"
+                placeholderTextColor="gray"
                 keyboardType="email-address"
-                underlineColorAndroid="white"
+                underlineColorAndroid="gray"
                 style={[
                   styles.inputField,
                   Platform.OS === 'ios' && styles.inputFieldIOS,
                 ]}
-                selectionColor="white"
+                selectionColor="gray"
                 onChangeText={value => onChange(value, 'email')}
                 value={email}
                 onSubmitEditing={onLogin}
@@ -103,14 +108,14 @@ export const LogInScreen = ({navigation}: Props) => {
               <Text style={styles.label}>Contraseña:</Text>
               <TextInput
                 placeholder="******"
-                placeholderTextColor="rgba(255,255,255,0.4)"
-                underlineColorAndroid="white"
+                placeholderTextColor="gray"
+                underlineColorAndroid="gray"
                 secureTextEntry
                 style={[
                   styles.inputField,
                   Platform.OS === 'ios' && styles.inputFieldIOS,
                 ]}
-                selectionColor="white"
+                selectionColor="gray"
                 onChangeText={value => onChange(value, 'password')}
                 value={password}
                 onSubmitEditing={onLogin}
@@ -151,20 +156,22 @@ export const LogInScreen = ({navigation}: Props) => {
               <Text style={styles.textLogInBtn}>Log Out</Text>
             </TouchableOpacity>
           )}
+          
         </View>
-        <View style={{backgroundColor: 'white'}}>
-          <LottieView
-            source={require('../assets/login-Animation.json')}
-            style={{
-              width: '100%',
-              height: 250,
-              backgroundColor: 'white',
-              marginLeft: 60,
-              marginBottom: 20,
-            }}
-            autoPlay
-            speed={0.5}
-          />
+        <View style={{backgroundColor:'white'}}>
+        <LottieView
+          source={require('../assets/login-Animation.json')}
+          style={{
+            width: "100%",
+            height: 250,
+            backgroundColor:'white',
+            marginLeft:60,
+            marginBottom:20
+            
+          }}
+          autoPlay
+          speed={0.5}
+        />
         </View>
       </KeyboardAvoidingView>
     </>

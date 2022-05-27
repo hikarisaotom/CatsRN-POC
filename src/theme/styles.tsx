@@ -141,7 +141,7 @@ export const styles = StyleSheet.create({
     marginLeft: 10,
   },
 
-  logInBtn:{
+  logInBtn: {
     alignSelf: 'center',
     backgroundColor: 'rgba(192, 192, 192, 0.7)',
     alignContent: 'center',
@@ -149,40 +149,68 @@ export const styles = StyleSheet.create({
     textAlign: 'center',
     justifyContent: 'center',
     height: 50,
-    width:'80%',
+    width: '80%',
     borderRadius: 20,
     marginLeft: 10,
-    marginTop:20,
-    marginBottom:10
+    marginTop: 20,
+    marginBottom: 10,
   },
-  textLogInBtn:{
-    fontSize:20,
-    fontWeight:'bold',
+  textLogInBtn: {
+    fontSize: 20,
+    fontWeight: 'bold',
   },
   titleLogIn: {
     color: 'rgba(88,86,214,0.9)',
     fontSize: 30,
     fontWeight: 'bold',
     marginTop: 20,
-    textAlign:'center'
-},
-label: {
+    textAlign: 'center',
+  },
+  label: {
     marginTop: 25,
     color: 'black',
     fontWeight: 'bold',
-},
-inputField: {
-    color:'rgba(88,86,214,0.5)',
+  },
+  inputField: {
+    color: 'rgba(88,86,214,0.5)',
     fontSize: 20,
-    paddingLeft:10,
-    marginBottom:10
-},
-inputFieldIOS: {
+    paddingLeft: 10,
+    marginBottom: 10,
+  },
+  inputFieldIOS: {
     borderBottomColor: 'rgba(88,86,214,0.5)',
     borderBottomWidth: 2,
-    paddingBottom: 4
-},
-tabImage:{
-  width: 35, height: 35,marginTop:5
-}
+    paddingBottom: 4,
+  },
+  tabImage: {
+    width: 35,
+    height: 35,
+    marginTop: 5,
+  },
+  avatarContainer: {
+    // backgroundColor:'red',
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  avatar: {
+    width: 150,
+    height: 150,
+    borderRadius: 100,
+  },
+  menuContainer: {
+    marginVertical: 30,
+    marginHorizontal: 50,
+  },
+  menuBtn: {
+    marginVertical: 10,
+  },
+  menutext: {
+    fontSize: 20,
+  },
+
+  avatartext: {
+    fontSize: 20,
+     marginTop: 5,
+     color: 'rgba(0, 0, 0, 0.5)'
+    },
 });
