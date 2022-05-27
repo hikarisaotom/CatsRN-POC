@@ -15,13 +15,15 @@ import SplashScreen from 'react-native-splash-screen'
 import Carousel, {Pagination} from 'react-native-snap-carousel';
 import {useAnimation} from '../hooks/useAnimation';
 import {FadeInImage} from '../components/FadeInImage';
-
+import LottieView from 'lottie-react-native'
 const {width: screenWidth} = Dimensions.get('window');
 
 interface Slide {
   title: string;
   desc: string;
-  img: ImageSourcePropType;
+  // img: ImageSourcePropType;
+  img:NodeRequire;
+  marginSide:Number;
 }
 
 const items: Slide[] = [
@@ -29,19 +31,26 @@ const items: Slide[] = [
     title: 'Hey!, Hello there!',
     desc:
       'Welcome to the cats app, here you can find lots of information to lear more about your furry friend!, lets take and overview about what you can do here!',
-    img: require('../assets/slide-1.gif'),
+    // img: require('../assets/slide-1.gif'),
+    img: require('../assets/slide-1.json'),
+    marginSide:-40,
   },
   {
     title: 'Types of breed!',
     desc:
       'Have you ever wonder about the type of breed of a cat? which are their characteristics and more? well, not anymore! you can find all the information related to cat breeds here!',
-    img: require('../assets/slide-2.gif'),
+    // img: require('../assets/slide-2.gif'),
+    img: require('../assets/slide-2.json'),
+    marginSide:-15,
   },
   {
     title: 'Have Fun!',
     desc:
       'Besides of learning you can also have fun!, we all can agree that watching funny cat pictures is relaxing!, guess what? you can also do that in here!You can either see them divided by category or just have a random picture!.',
-    img: require('../assets/slide-3.gif'),
+    // img: require('../assets/slide-3.gif'),
+    img: require('../assets/slide-3.json'),
+    marginSide:-10,
+
   },
 ];
 
@@ -65,7 +74,7 @@ useEffect(() => {
           justifyContent: 'center',
         }}
       >
-        <FadeInImage
+        {/* <FadeInImage
           localImg={item.img}
           uri=""
           style={{
@@ -73,6 +82,17 @@ useEffect(() => {
             height: 400,
             resizeMode: 'cover',
           }}
+        /> */}
+
+        <LottieView
+      //  source={require('../assets/14592-loader-cat.json')}
+      source={item.img}
+        style={{
+          width: 350,
+          height: 400,
+          marginLeft:item.marginSide,
+         }}
+         autoPlay
         />
 
         <Text

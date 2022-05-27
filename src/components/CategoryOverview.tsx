@@ -53,7 +53,7 @@ export const CategoryOverview = ({category}: Props) => {
           <FadeInImage
             uri=""
             style={{...styles.image, marginBottom: 15}}
-            localImg={require('../assets/catCalm-TEST.gif')}
+            localImg={require('../assets/404catImage.gif')}
           />
         )}
       </View>

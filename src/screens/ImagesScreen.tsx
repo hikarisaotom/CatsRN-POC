@@ -35,21 +35,29 @@ export const ImagesScreen = () => {
         {isLoading ? (
           <LoadingScreen />
         ) : (
-          imagesByCategory.map(
-            (item, index) =>
-              index <= 0 && (
-                <FadeInImage
-                  uri={item.url}
-                  style={{
-                    
-                    width: '100%',
-                    height: undefined,
-                    aspectRatio: 0.63,
-                    resizeMode: 'cover',
-                  }}
-                />
-              ),
-          )
+          (imagesByCategory.length>0)&& <FadeInImage
+          uri={imagesByCategory[0].url}
+          style={{
+            width: '100%',
+            height: undefined,
+            aspectRatio: 0.63,
+            resizeMode: 'cover',
+          }}
+        />
+          // imagesByCategory.map(
+          //   (item, index) =>
+          //     index <= 0 && (
+          //       <FadeInImage
+          //         uri={item.url}
+          //         style={{
+          //           width: '100%',
+          //           height: undefined,
+          //           aspectRatio: 0.63,
+          //           resizeMode: 'cover',
+          //         }}
+          //       />
+          //     ),
+          // )
         )}
          <View style={{
            position: 'absolute',
@@ -83,7 +91,7 @@ export const ImagesScreen = () => {
          </Text>
        </TouchableOpacity>
      </View>
-     <View style={{...styles.title,width:"95%",borderRadius:20,marginTop:10,alignSelf:'center',backgroundColor:'rgba(88,86,214,0.1)'}}>
+     <View style={{...styles.title,width:"95%",borderRadius:20,marginTop:3,alignSelf:'center',backgroundColor:'rgba(88,86,214,0.1)'}}>
         <Text style={{fontSize:20}}>
                If you want to see more images just click on the reload option!
            </Text> 

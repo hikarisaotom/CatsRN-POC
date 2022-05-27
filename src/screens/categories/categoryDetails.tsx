@@ -34,7 +34,7 @@ export const CategoryDetails = ({route, navigation}: Props) => {
 
   const showNavigators = (show: boolean) => {
     navigation.setOptions({
-      title: category.name,
+      title: category.name.toUpperCase(),
       headerBackTitle: 'Categories',
       headerShown: show,
     });
@@ -43,7 +43,9 @@ export const CategoryDetails = ({route, navigation}: Props) => {
       headerShown: !show,
     });
   };
-  if (isLoading) return <LoadingScreen />;
+  if (isLoading) return <View style={{height:'100%',alignContent:'center',alignItems:'center'}}>
+    <LoadingScreen />
+  </View>;
 
   return (
     <SafeAreaView>
