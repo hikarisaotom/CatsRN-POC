@@ -157,10 +157,10 @@ export const styles = StyleSheet.create({
   },
   textLogInBtn:{
     fontSize:20,
-    fontWeight:'bold'
+    fontWeight:'bold',
   },
   titleLogIn: {
-    color: 'black',
+    color: 'rgba(88,86,214,0.9)',
     fontSize: 30,
     fontWeight: 'bold',
     marginTop: 20,
@@ -172,12 +172,13 @@ label: {
     fontWeight: 'bold',
 },
 inputField: {
-    color:'white',
+    color:'rgba(88,86,214,0.5)',
     fontSize: 20,
-    paddingLeft:10
+    paddingLeft:10,
+    marginBottom:10
 },
 inputFieldIOS: {
-    borderBottomColor: 'white',
+    borderBottomColor: 'rgba(88,86,214,0.5)',
     borderBottomWidth: 2,
     paddingBottom: 4
 },

@@ -1,55 +1,7 @@
-// import React, {useEffect, useState} from 'react';
-// import {Text, View} from 'react-native';
-// import auth from '@react-native-firebase/auth';
-// import {FirebaseAuthTypes} from '@react-native-firebase/auth';
-// import {TouchableOpacity} from 'react-native-gesture-handler';
-// import {createAccount, logIn, logOut} from '../utils/LogInManager';
-// import {styles} from '../theme/styles';
-// export const LogInScreen = () => {
-//   const [initializing, setInitializing] = useState(true);
-//   const [user, setUser] = useState<FirebaseAuthTypes.User>();
-
-//   function onAuthStateChanged(user: FirebaseAuthTypes.User) {
-//     console.log('user state changed to ', user.email);
-//     setUser(user);
-//     if (initializing) setInitializing(false);
-//   }
-
-//   useEffect(() => {
-//     const subscriber = auth().onAuthStateChanged(user => {
-//       if (user) {
-//         onAuthStateChanged(user);
-//       }
-//     });
-//     return subscriber; // unsubscribe on unmount
-//   }, []);
-//   return (
-//     <View>
-//       <Text>Log in Screen</Text>
-//       {!user ? <Text>!user</Text> : <Text>user</Text>}
-//       <TouchableOpacity
-//         style={styles.logInBtn}
-//         onPress={() => createAccount('test@test.com', 'SuperSecretPassword')}
-//       >
-//         <Text style={styles.textLogInBtn}> Sign Up</Text>
-//       </TouchableOpacity>
-
-//       <TouchableOpacity
-//         style={styles.logInBtn}
-//         onPress={() => logIn('test@test.com', 'SuperSecretPassword')}
-//       >
-//         <Text style={styles.textLogInBtn}> Log In</Text>
-//       </TouchableOpacity>
-
-//       <TouchableOpacity style={styles.logInBtn} onPress={() => logOut()}>
-//         <Text style={styles.textLogInBtn}> Log Out</Text>
-//       </TouchableOpacity>
-//     </View>
-//   );
-// };
-
 import {StackScreenProps} from '@react-navigation/stack';
 import React, {useContext, useEffect, useState} from 'react';
+import LottieView from 'lottie-react-native';
+
 import {
   Text,
   View,
@@ -115,7 +67,14 @@ export const LogInScreen = ({navigation}: Props) => {
         style={{flex: 1}}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       >
-        <View style={{backgroundColor: 'rgba(88,86,214,0.2)',flex:1, justifyContent:'center', paddingBottom: 150}}>
+        <View
+          style={{
+            backgroundColor: 'white',
+            flex: 1,
+            justifyContent: 'center',
+            //  paddingBottom: 150,
+          }}
+        >
           {/* Keyboard avoid view */}
           {status === 'not-authenticated' ? (
             <View>
@@ -176,7 +135,9 @@ export const LogInScreen = ({navigation}: Props) => {
                 style={{alignSelf: 'center'}}
                 onPress={() => setAction(!action)}
               >
-                <Text style={styles.textLogInBtn}>
+                <Text
+                  style={{...styles.textLogInBtn, color: 'rgba(88,86,214,1)'}}
+                >
                   Want to sign {!action ? 'In' : 'Up'}?
                 </Text>
               </TouchableOpacity>
@@ -190,6 +151,20 @@ export const LogInScreen = ({navigation}: Props) => {
               <Text style={styles.textLogInBtn}>Log Out</Text>
             </TouchableOpacity>
           )}
+        </View>
+        <View style={{backgroundColor: 'white'}}>
+          <LottieView
+            source={require('../assets/login-Animation.json')}
+            style={{
+              width: '100%',
+              height: 250,
+              backgroundColor: 'white',
+              marginLeft: 60,
+              marginBottom: 20,
+            }}
+            autoPlay
+            speed={0.5}
+          />
         </View>
       </KeyboardAvoidingView>
     </>
